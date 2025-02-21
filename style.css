@@ -1,9 +1,9 @@
 :root {
-    --color-primary: #4B69FD;
+    --color-primary: #08023f;
     --color-secondary: #FFF9EB;
     --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
+    --color-button: #C4C4C4;
+    --color-button-hover: #08023f;
     --color-text: #444444;
     --color-white: #FFFFFF;
 }
@@ -54,7 +54,7 @@ body {
 
 /* Títulos */
 .main-title {
-    font-size: 48px;
+    font-size: 64px;
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
@@ -87,7 +87,7 @@ body {
     font-size: 16px;
 }
 
-.button-container {
+.button-group {
     width: 300px;
     justify-content: center;
 }
@@ -163,7 +163,7 @@ ul {
 
 /* Estilos do Modal */
 .modal {
-    display: flex; /* Escondido por padrão */
+    display: none; /* Escondido por padrão */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -171,7 +171,6 @@ ul {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -186,9 +185,11 @@ ul {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.fechar {
+.close {
     float: right;
-    font-size: 24px;
+    right:15px;
+    top: 10px;
+    font-size: 20px;
     cursor: pointer;
     color: red;
 }

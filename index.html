@@ -13,7 +13,7 @@
 <body>
     <main class="main-content">
         <header class="header-banner">
-            <h1 class="main-title">Amigo Secreto</h1>
+            <h1 class="main-title">Sorteie um Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
         </header>
         
@@ -21,25 +21,35 @@
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+                <button class="button-add" onclick="adicionarAmigo()">Adicionar amigo</button>
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
-            <div class="button-container">
+            <div class="button-group">
                 <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
+                    <img src="assets/play_circle_outline.svg" alt="Ícone para sortear">
+                    Sortear amigo secreto
+                </button>
+                <button class="button-draw" onclick="reiniciar()" aria-label="Sortear amigo secreto">
+                    <img src="assets/restart_circle_outline.svg" alt="Ícone para reiniciar">
+                        Reiniciar
                 </button>
             </div>
             <!-- Modal para exibir o amigo sorteado -->
-<div id="modalSorteio" class="modal">
-    <div class="modal-content">
-        <span class="fechar" onclick="fecharModal()">&times;</span>
-        <p id="mensagemSorteio"></p>
-    </div>
-</div>
+            <div id="modalSorteio" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <p id="mensagemSorteio"></p>
+                </div>
+            </div>
+            <div id="modalAlerta" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <p id="mensagemAlerta"></p>
+                </div>
+            </div>
 
         </section>
     </main>

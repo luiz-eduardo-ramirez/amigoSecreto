@@ -3,13 +3,19 @@
 let amigos = [];
 let amigoSorteado = ``;
 let amigoRemovido = ``;
-let sorteioBoolano = false;
 
 //Funções
 
-window.onload = function () {
+//Esconde o Modal ao carregar a página
+function fecharModal() {
   document.getElementById("modalSorteio").style.display = "none";
-};
+  document.getElementById("modalAlerta").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("modalSorteio").style.display = "none";
+  document.getElementById("modalAlerta").style.display = "none";
+});
 
 // Coloca a primeira letra de cada palavra em maiúscula
 function capitalizarPrimeiraLetra(string) {
@@ -20,6 +26,23 @@ function capitalizarPrimeiraLetra(string) {
         palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase()
     ) // Capitaliza cada palavra
     .join(" "); // Junta as palavras novamente
+}
+
+//Verifica se o input é válido
+function validarAmigo(nome) {
+  let caracteresRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+
+  if (!caracteresRegex.test(nome)) {
+    exibirModalAlerta("O nome deve conter apenas letras e espaços!");
+    return false;
+  }
+
+  if (amigos.includes(nome)) {
+    alert("O amigo ja foi adicionado");
+    return false;
+  }
+
+  return true;
 }
 
 // Adicionar amigo
@@ -36,23 +59,6 @@ function adicionarAmigo() {
   exibirAmigos();
 }
 
-//Verifica se o input é válido
-function validarAmigo(nome) {
-  let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-
-  if (!regex.test(nome)) {
-    alert("O nome deve conter apenas letras e espaços.");
-    return false;
-  }
-
-  if (amigos.includes(nome)) {
-    alert("O amigo ja foi adicionado");
-    return false;
-  }
-
-  return true;
-}
-
 //Exibe a lista de amigos
 function exibirAmigos() {
   let listaAmigos = document.getElementById("listaAmigos");
@@ -67,24 +73,38 @@ function exibirAmigos() {
 
 //Sorteia um nome aleatório
 function sortearAmigo() {
-  if (amigos.length === 0) {
-    alert("Nenhum amigo foi adicionado!");
+  if (amigos.length === 0 || amigos.length === 1) {
+    exibirModalAlerta("Adicione pelo menos dois amigos!");
     return;
   }
 
-  let amigoSorteado = Math.floor(Math.random() * amigos.length);
-  amigoRemovido = amigos[amigoSorteado];
+  let indiceSorteado = Math.floor(Math.random() * amigos.length);
+  amigoSorteado = amigos[indiceSorteado];
 
   // Atualiza o texto dentro do modal
   document.getElementById("mensagemSorteio").textContent =
-    `🎉 O amigo sorteado foi: ` + amigos[amigoSorteado];
+    `🎉 O amigo sorteado foi ` + amigoSorteado;
 
   // Exibe o modal
   let modal = document.getElementById("modalSorteio");
   modal.style.display = "flex";
 }
 
-// Fecha o modal quando o usuário clica no "X"
-function fecharModal() {
-  document.getElementById("modalSorteio").style.display = "none";
+//Reinicia
+function reiniciar() {
+  amigos = [];
+  exibirAmigos();
+}
+
+//### Exibicão de paineis modal
+
+// Função para exibir o modal
+function exibirModalAlerta(mensagem) {
+  let modal = document.getElementById("modalAlerta");
+  let mensagemAlerta = document.getElementById("mensagemAlerta");
+
+  if (modal && mensagemAlerta) {
+    mensagemAlerta.textContent = mensagem;
+    modal.style.display = "flex";
+  }
 }
