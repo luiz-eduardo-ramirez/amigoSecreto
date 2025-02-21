@@ -2,7 +2,8 @@
 
 Este é um projeto proposto pelo curso da Alura|Oracle One Next Education para realizar um sorteio de amigo secreto. Os usuários podem adicionar nomes de amigos em uma lista, e postertiormente sortear um nome aleatório.
 
-![Tela inicial](assets/Print.png)
+
+![Print](https://github.com/user-attachments/assets/9026d230-1eed-4111-898f-7e9b792efcbc)
 
 
 ## Tecnologias Utilizadas
