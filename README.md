@@ -14,12 +14,17 @@ Este é um projeto proposto pelo curso da Alura|Oracle One Next Education para r
 
 ## Funcionalidades
 
-✅ Adicionar amigos a uma lista
-✅ Validar os nomes digitados (somente letras e espaços são permitidos)
-✅ Exibir a lista de amigos adicionados
-✅ Sortear um amigo aleatório da lista
-✅ Exibir o nome sorteado em um modal
-✅ Reiniciar o sorteio
+✅ Adicionar amigos a uma lista;
+
+✅ Validar os nomes digitados (somente letras e espaços são permitidos);
+
+✅ Exibir a lista de amigos adicionados;
+
+✅ Sortear um amigo aleatório da lista;
+
+✅ Exibir o nome sorteado em um modal;
+
+✅ Reiniciar o sorteio;
 
 ## Como Usar
 
